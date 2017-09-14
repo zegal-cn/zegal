@@ -6,145 +6,18 @@ toc: true
 permalink: /wiki/nest
 ---
 
+
 [![nest](/assets/img/nest.png)](http://nestjs.com/) [![github](/assets/img/github.svg)](https://github.com/kamilmysliwiec/nest)
 
 Nest 是一个强大的 Node.js Web 框架，可以帮助你轻松地构建高效，可扩展的应用程序。它采用现代 JavaScript，基于 TypeScript 构建，并结合了 OOP（面向对象编程）和 FP （函数式编程）的最佳概念。
 
 它不仅是又一个框架。你不必等待一个大型的社区，因为 Nest 建立在著名仓库 Express 和 socket.io 之上。这意味着，你可以快速开始使用框架，而不必担心第三方插件的缺失。
 
-## 安装
+https://segmentfault.com/a/1190000009573441
 
-Git:
-```
-git clone https://github.com/kamilmysliwiec/nest-typescript-starter.git projectname
-cd projectname
-npm install
-npm run start
-```
 
-NPM:
-```
-npm i --save @nestjs/core @nestjs/common @nestjs/microservices @nestjs/websockets @nestjs/testing reflect-metadata rxjs
-```
 
-## 设置应用程序
 
-Nest 采用 ES6 和 ES7 （decorators， async / await）功能构建。这意味着，使用它的最简单的方法是 Babel 或 TypeScript。
-
-配置 [TypeScript](/wiki/typescript/tips/)
-
-### 1. 创建入口模块
-
-`app.module.ts`
-```js
-import { Module } from '@nestjs/common';
-
-@Module({})
-export class ApplicationModule {}
-```
-### 2. 创建文件 index.ts
-
-使用 `NestFactory` 基于我们的模块类来创建 Nest 应用程序实例。
-
-```js
-import { NestFactory } from '@nestjs/core';
-import { ApplicationModule } from './app.module';
-
-const app = NestFactory.create(ApplicationModule);
-app.listen(3000, () => console.log('Application is listening on port 3000'));
-```
-## Express 实例
-
-如果要完全控制 `express` 实例的生命周期，你可以简单的传递已创建的对象作为 `NestFactory.create()` 方法的第二个参数，像这样：
-
-```js
-import express from 'express';
-import { NestFactory } from '@nestjs/core';
-import { ApplicationModule } from './modules/app.module';
-
-const instance = express();
-const app = NestFactory.create(ApplicationModule, instance);
-app.listen(3000, () => console.log('Application is listening on port 3000'));
-```
-
-这意味着，你可以直接添加一些自定义配置（例如，设置一些插件，如 `morgan` 或 `body-parser`）。
-
-## 控制器(Controllers)
-
-控制层（`Controllers`）负责处理传入的 HTTP 请求。在 Nest 中，控制器是一个带有 `@Controller()` 装饰器的类。
-
-在上一节中，我们为应用程序设置了入口点。现在，让我们来构建我们的第一个文件路径 `/users`：
-```js
-import { Controller, Get, Post } from '@nestjs/common';
-
-@Controller()
-export class UsersController {
-    @Get('users')
-    getAllUsers() {}
-
-    @Get('users/:id')
-    getUser() {}
-
-    @Post('users')
-    addUser() {}
-}
-```
-我们刚刚创建了一个具有 3 种不同路径的路由：
-```
-GET: users
-GET: users/:id
-POST: users
-```
-
-Nest 允许我们将额外的元数据传递给 `@Controller()` 装饰器 - 路径，这是每个路由的前缀。让我们重写我们的控制器：
-```js
-@Controller('users')
-export class UsersController {
-    @Get()
-    getAllUsers(req, res, next) {}
-
-    @Get('/:id')
-    getUser(req, res, next) {}
-
-    @Post()
-    addUser(req, res, next) {}
-}
-```
-如果你想了解更多关于 `req` （请求），`res`（响应）和 `next`，你可以参考 Express 的[路由文档](https://expressjs.com/en/guide/routing.html)。在 Nest 中，它们是等价的。
-
-但是有一个重要的区别。 Nest 提供了一组自定义的装饰器，你可以使用它们来标记参数。
-
-Nest	| Express
-------|--------
-`@Request()`	| `req`
-`@Response()`	| `res`
-`@Next()`	| `next`
-`@Session()`	| `req.session`
-`@Param(param?: string)`	| `req.params[param]`
-`@Body(param?: string)`	| `req.body[param]`
-`@Query(param?: string)`	| `req.query[param]`
-`@Headers(param?: string)`	| `req.headers[param]`
-
-你可以这样使用它们：
-```js
-import { Response, Param } from '@nestjs/common';
-
-@Get('/:id')
-public async getUser(@Response() res, @Param('id') id) {
-    const user = await this.usersService.getUser(id);
-    res.status(HttpStatus.OK).json(user);
-}
-```
-`ApplicationModule` 并添加一些元数据，只需要将 `controller` 插入 `controllers` 数组中。
-```js
-import { Module } from '@nestjs/common';
-import { UsersController } from "./users.controller";
-
-@Module({
-    controllers: [ UsersController ]
-})
-export class ApplicationModule {}
-```
 ## 组件(Components)
 
 几乎所有的东西都是组件，`Service`，`Repository`，`Provider`等等。并且他们可以通过构造函数注入控制器或另一组件。

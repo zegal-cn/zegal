@@ -128,15 +128,6 @@
         
           <div class="d-none d-xl-block col-xl-2 bd-toc">
             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#安装">安装</a></li>
-<li class="toc-entry toc-h2"><a href="#设置应用程序">设置应用程序</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#1-创建入口模块">1. 创建入口模块</a></li>
-<li class="toc-entry toc-h3"><a href="#2-创建文件-indexts">2. 创建文件 index.ts</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#express-实例">Express 实例</a></li>
-<li class="toc-entry toc-h2"><a href="#控制器controllers">控制器(Controllers)</a></li>
 <li class="toc-entry toc-h2"><a href="#组件components">组件(Components)</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#async--await">Async / await</a></li>
@@ -147,7 +138,56 @@
 <li class="toc-entry toc-h3"><a href="#依赖注入">依赖注入</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#中间件middlewares">中间件(Middlewares)</a></li>
+<li class="toc-entry toc-h2"><a href="#中间件middlewares">中间件(Middlewares)</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#它如何工作">它如何工作？</a></li>
+<li class="toc-entry toc-h3"><a href="#链chaining">链(Chaining)</a></li>
+<li class="toc-entry toc-h3"><a href="#顺序">顺序</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#网关gateways实时应用程序">网关（Gateways）实时应用程序</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#什么是消息">什么是消息</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#websocketserver">@WebSocketServer()</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#网关中间件">网关中间件</a></li>
+<li class="toc-entry toc-h3"><a href="#反应流reactive-streams">反应流(Reactive Streams)</a></li>
+<li class="toc-entry toc-h3"><a href="#微服务microservices支持">微服务(Microservices)支持</a></li>
+<li class="toc-entry toc-h3"><a href="#通过-tcp-进行通信">通过 TCP 进行通信</a></li>
+<li class="toc-entry toc-h3"><a href="#客户端">客户端</a></li>
+<li class="toc-entry toc-h3"><a href="#使用客户端">使用客户端</a></li>
+<li class="toc-entry toc-h3"><a href="#redis">Redis</a></li>
+<li class="toc-entry toc-h3"><a href="#创建-redis-微服务">创建 Redis 微服务</a></li>
+<li class="toc-entry toc-h3"><a href="#redis-客户端">Redis 客户端</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#共享模块">共享模块</a></li>
+<li class="toc-entry toc-h2"><a href="#依赖注入-1">依赖注入</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#自定义组件">自定义组件</a></li>
+<li class="toc-entry toc-h3"><a href="#使用-value">使用 value</a></li>
+<li class="toc-entry toc-h3"><a href="#使用-class">使用 class</a></li>
+<li class="toc-entry toc-h3"><a href="#使用工厂">使用工厂</a></li>
+<li class="toc-entry toc-h3"><a href="#定制-providers">定制 providers</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#moduleref">ModuleRef</a></li>
+<li class="toc-entry toc-h2"><a href="#测试">测试</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#隔离测试">隔离测试</a></li>
+<li class="toc-entry toc-h3"><a href="#专用的-nest-测试工具">专用的 Nest 测试工具</a></li>
+<li class="toc-entry toc-h3"><a href="#mocks-spies-stubs">Mocks, spies, stubs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#异常过滤器exception-filters">异常过滤器（Exception Filters）</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#更多异常过滤器">更多异常过滤器</a></li>
+<li class="toc-entry toc-h3"><a href="#httpexception">HttpException</a></li>
+<li class="toc-entry toc-h3"><a href="#异常层次结构">异常层次结构</a></li>
+</ul>
+</li>
 </ul>
           </div>
         
@@ -163,171 +203,8 @@
 
 <p>它不仅是又一个框架。你不必等待一个大型的社区，因为 Nest 建立在著名仓库 Express 和 socket.io 之上。这意味着，你可以快速开始使用框架，而不必担心第三方插件的缺失。</p>
 
-<h2 id="安装">安装</h2>
+<p>https://segmentfault.com/a/1190000009573441</p>
 
-<p>Git:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/kamilmysliwiec/nest-typescript-starter.git projectname
-cd projectname
-npm install
-npm run start
-</code></pre>
-</div>
-
-<p>NPM:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>npm i --save @nestjs/core @nestjs/common @nestjs/microservices @nestjs/websockets @nestjs/testing reflect-metadata rxjs
-</code></pre>
-</div>
-
-<h2 id="设置应用程序">设置应用程序</h2>
-
-<p>Nest 采用 ES6 和 ES7 （decorators， async / await）功能构建。这意味着，使用它的最简单的方法是 Babel 或 TypeScript。</p>
-
-<p>配置 <a href="/wiki/typescript/tips/">TypeScript</a></p>
-
-<h3 id="1-创建入口模块">1. 创建入口模块</h3>
-
-<p><code class="highlighter-rouge">app.module.ts</code></p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Module</span><span class="p">({})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
-</code></pre>
-</div>
-<h3 id="2-创建文件-indexts">2. 创建文件 index.ts</h3>
-
-<p>使用 <code class="highlighter-rouge">NestFactory</code> 基于我们的模块类来创建 Nest 应用程序实例。</p>
-
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./app.module'</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
-</code></pre>
-</div>
-<h2 id="express-实例">Express 实例</h2>
-
-<p>如果要完全控制 <code class="highlighter-rouge">express</code> 实例的生命周期，你可以简单的传递已创建的对象作为 <code class="highlighter-rouge">NestFactory.create()</code> 方法的第二个参数，像这样：</p>
-
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s1">'express'</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./modules/app.module'</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">,</span> <span class="nx">instance</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
-</code></pre>
-</div>
-
-<p>这意味着，你可以直接添加一些自定义配置（例如，设置一些插件，如 <code class="highlighter-rouge">morgan</code> 或 <code class="highlighter-rouge">body-parser</code>）。</p>
-
-<h2 id="控制器controllers">控制器(Controllers)</h2>
-
-<p>控制层（<code class="highlighter-rouge">Controllers</code>）负责处理传入的 HTTP 请求。在 Nest 中，控制器是一个带有 <code class="highlighter-rouge">@Controller()</code> 装饰器的类。</p>
-
-<p>在上一节中，我们为应用程序设置了入口点。现在，让我们来构建我们的第一个文件路径 <code class="highlighter-rouge">/users</code>：</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span><span class="p">,</span> <span class="nx">Post</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Controller</span><span class="p">()</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
-    <span class="nx">getAllUsers</span><span class="p">()</span> <span class="p">{}</span>
-
-    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'users/:id'</span><span class="p">)</span>
-    <span class="nx">getUser</span><span class="p">()</span> <span class="p">{}</span>
-
-    <span class="err">@</span><span class="nx">Post</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
-    <span class="nx">addUser</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-<p>我们刚刚创建了一个具有 3 种不同路径的路由：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>GET: users
-GET: users/:id
-POST: users
-</code></pre>
-</div>
-
-<p>Nest 允许我们将额外的元数据传递给 <code class="highlighter-rouge">@Controller()</code> 装饰器 - 路径，这是每个路由的前缀。让我们重写我们的控制器：</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Controller</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">Get</span><span class="p">()</span>
-    <span class="nx">getAllUsers</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
-    <span class="nx">getUser</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="err">@</span><span class="nx">Post</span><span class="p">()</span>
-    <span class="nx">addUser</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-<p>如果你想了解更多关于 <code class="highlighter-rouge">req</code> （请求），<code class="highlighter-rouge">res</code>（响应）和 <code class="highlighter-rouge">next</code>，你可以参考 Express 的<a href="https://expressjs.com/en/guide/routing.html">路由文档</a>。在 Nest 中，它们是等价的。</p>
-
-<p>但是有一个重要的区别。 Nest 提供了一组自定义的装饰器，你可以使用它们来标记参数。</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nest</th>
-      <th>Express</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">@Request()</code></td>
-      <td><code class="highlighter-rouge">req</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Response()</code></td>
-      <td><code class="highlighter-rouge">res</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Next()</code></td>
-      <td><code class="highlighter-rouge">next</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Session()</code></td>
-      <td><code class="highlighter-rouge">req.session</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Param(param?: string)</code></td>
-      <td><code class="highlighter-rouge">req.params[param]</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Body(param?: string)</code></td>
-      <td><code class="highlighter-rouge">req.body[param]</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Query(param?: string)</code></td>
-      <td><code class="highlighter-rouge">req.query[param]</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">@Headers(param?: string)</code></td>
-      <td><code class="highlighter-rouge">req.headers[param]</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>你可以这样使用它们：</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Response</span><span class="p">,</span> <span class="nx">Param</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
-<span class="kr">public</span> <span class="nx">async</span> <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-<p><code class="highlighter-rouge">ApplicationModule</code> 并添加一些元数据，只需要将 <code class="highlighter-rouge">controller</code> 插入 <code class="highlighter-rouge">controllers</code> 数组中。</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"./users.controller"</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
-    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">]</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
-</code></pre>
-</div>
 <h2 id="组件components">组件(Components)</h2>
 
 <p>几乎所有的东西都是组件，<code class="highlighter-rouge">Service</code>，<code class="highlighter-rouge">Repository</code>，<code class="highlighter-rouge">Provider</code>等等。并且他们可以通过构造函数注入控制器或另一组件。</p>
@@ -573,10 +450,10 @@ POST: users
 <p>一些事实如下：</p>
 
 <ul>
-  <li>你应该使用 @Middleware() 注解来告诉 Nest，这个类是一个中间件，</li>
-  <li>你可以使用 NestMiddleware 界面，这强制你使用 resolve() 方法，</li>
+  <li>你应该使用 <code class="highlighter-rouge">@Middleware()</code> 注解来告诉 Nest，这个类是一个中间件，</li>
+  <li>你可以使用 <code class="highlighter-rouge">NestMiddleware</code> 界面，这强制你使用 <code class="highlighter-rouge">resolve()</code> 方法，</li>
   <li>中间件（与组件相同）可以通过其构造函数的注入依赖项（依赖关系必须是模块的一部分），</li>
-  <li>中间件必须有 resolve() 方法，它必须返回另一个函数（高阶函数）。为什么？因为有很多第三方插件准备使用 express 中间件，你可以简单地在 Nest 中使用，还要感谢这个方案。</li>
+  <li>中间件必须有 <code class="highlighter-rouge">resolve()</code> 方法，它必须返回另一个函数（高阶函数）。为什么？因为有很多第三方插件准备使用 express 中间件，你可以简单地在 Nest 中使用，还要感谢这个方案。</li>
 </ul>
 
 <p>好了，我们已经准备好了中间件，但是我们并没有在任何地方使用它。我们来设置它：</p>
@@ -602,6 +479,593 @@ POST: users
   <li><code class="highlighter-rouge">forRoutes()</code>：我们使用这种方法通过逗号分隔控制器或对象（具有 <code class="highlighter-rouge">path</code> 和 <code class="highlighter-rouge">method</code> 属性），不限个数，</li>
   <li><code class="highlighter-rouge">with()</code>：我们使用这种方法将自定义参数传递给 <code class="highlighter-rouge">resolve()</code> 中间件方法。</li>
 </ul>
+
+<h3 id="它如何工作">它如何工作？</h3>
+<p>当你在 <code class="highlighter-rouge">forRoutes</code> 方法中传递 <code class="highlighter-rouge">UsersController</code> 时，Nest 将为控制器中的每个路由设置中间件：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>GET: users
+GET: users/:id
+POST: users
+</code></pre>
+</div>
+<p>但是也可以直接定义应该使用哪个路径的中间件，就像这样：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">consumer</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">AuthMiddleware</span><span class="p">).</span><span class="nx">forRoutes</span><span class="p">({</span>
+    <span class="na">path</span><span class="p">:</span> <span class="s1">'*'</span><span class="p">,</span> <span class="na">method</span><span class="p">:</span> <span class="nx">RequestMethod</span><span class="p">.</span><span class="nx">ALL</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+<h3 id="链chaining">链(Chaining)</h3>
+<p>你可以简单的调用 <code class="highlighter-rouge">apply()</code> 链。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>consumer.apply(AuthMiddleware, PassportMidleware)
+    .forRoutes(UsersController, OrdersController, ClientController);
+    .apply(...)
+    .forRoutes(...);
+</code></pre>
+</div>
+<h3 id="顺序">顺序</h3>
+
+<p>中间件按照与数组相同的顺序调用。在子模块中配置的中间件将在父模块配置之后被调用。</p>
+
+<h2 id="网关gateways实时应用程序">网关（Gateways）实时应用程序</h2>
+
+<p>Nest 中有特殊组件称为网关。网关帮助我们创建实时的网络应用程序。他们是一些封装的 <code class="highlighter-rouge">socket.io</code> 功能调整到框架架构。</p>
+
+<blockquote>
+  <p>网关是一个组件，因此它可以通过构造函数注入依赖关系。网关也可以注入到另一个组件。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">WebSocketGateway</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/websockets'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">WebSocketGateway</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersGateway</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>默认情况下，服务器在 80 端口上运行，并使用默认的命名空间。我们可以轻松地改变这些设置：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">WebSocketGateway</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="na">namespace</span><span class="p">:</span> <span class="s1">'users'</span> <span class="p">})</span>
+</code></pre>
+</div>
+<p>当然，只有当 UsersGateway 在 components 模块组件数组中时，服务器才会运行，所以我们必须把它放在那里：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span><span class="p">,</span> <span class="nx">UsersGateway</span> <span class="p">],</span>
+    <span class="na">exports</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>默认情况下，网关有三个有用的事件：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">afterInit</code>，作为本机服务器 <code class="highlighter-rouge">socket.io</code> 对象参数，</li>
+  <li><code class="highlighter-rouge">handleConnection</code> 和 <code class="highlighter-rouge">handleDisconnect</code>，作为本机客户端 <code class="highlighter-rouge">socket.io</code> 对象参数。</li>
+  <li>有特殊的接口，<code class="highlighter-rouge">OnGatewayInit</code>, <code class="highlighter-rouge">OnGatewayConnection</code> 和 <code class="highlighter-rouge">OnGatewayDisconnect</code> 来帮助我们管理生命周期。</li>
+</ul>
+
+<h3 id="什么是消息">什么是消息</h3>
+
+<p>在网关中，我们可以简单地订阅发出的消息：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">WebSocketGateway</span><span class="p">,</span> <span class="nx">SubscribeMessage</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/websockets'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">WebSocketGateway</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="na">namespace</span><span class="p">:</span> <span class="s1">'users'</span> <span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersGateway</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">SubscribeMessage</span><span class="p">(</span><span class="s1">'drop'</span><span class="p">)</span>
+    <span class="nx">handleDropMessage</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// sender is a native socket.io client object</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>而在客户端接收如下：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">io</span> <span class="nx">from</span> <span class="s1">'socket.io-client'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">'http://URL:PORT/'</span><span class="p">);</span>
+<span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'drop'</span><span class="p">,</span> <span class="p">{</span> <span class="na">msg</span><span class="p">:</span> <span class="s1">'test'</span> <span class="p">});</span>
+</code></pre>
+</div>
+<h2 id="websocketserver"><code class="highlighter-rouge">@WebSocketServer()</code></h2>
+
+<p>如果要分配选定的 <code class="highlighter-rouge">socket.io</code> 本地服务器实例属性，你可以使用 <code class="highlighter-rouge">@WebSocketServer()</code> 装饰器来简单地进行装饰。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">WebSocketGateway</span><span class="p">,</span> <span class="nx">WebSocketServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/websockets'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">WebSocketGateway</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="na">namespace</span><span class="p">:</span> <span class="s1">'users'</span> <span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersGateway</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">WebSocketServer</span><span class="p">()</span> <span class="nx">server</span><span class="p">;</span>
+
+    <span class="err">@</span><span class="nx">SubscribeMessage</span><span class="p">(</span><span class="s1">'drop'</span><span class="p">)</span>
+    <span class="nx">handleDropMessage</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// sender is a native socket.io client object</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>服务器初始化后将分配值。</p>
+
+<h3 id="网关中间件">网关中间件</h3>
+
+<p>网关中间件与路由器中间件几乎相同。中间件是一个函数，它在网关消息用户之前被调用。网关中间件函数可以访问本地 <code class="highlighter-rouge">socket</code> 对象。他们就像屏障一样，如果中间件函数不调用 <code class="highlighter-rouge">next()</code>，消息将永远不会由用户处理。</p>
+
+<p>例如：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthMiddleware</span> <span class="kr">implements</span> <span class="nx">GatewayMiddleware</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="nx">resolve</span><span class="p">()</span><span class="err">:</span> <span class="p">(</span><span class="nx">socket</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">socket</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Authorization...'</span><span class="p">);</span>
+            <span class="nx">next</span><span class="p">();</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>关于网关中间件的一些事实：</p>
+
+<p>你应该使用 <code class="highlighter-rouge">@Middleware()</code> 注解来告诉 Nest，这个类是一个中间件，
+你可以使用 <code class="highlighter-rouge">GatewayMiddleware</code> 界面，这迫使你实现 <code class="highlighter-rouge">resolve()</code> 方法，
+中间件（和组件一样）可以通过其构造函数注入依赖项（依赖关系必须是模块的一部分），
+中间件必须是 <code class="highlighter-rouge">resolve()</code> 方法，它必须返回另一个函数（高阶函数）
+好了，我们已经准备好中间件，但是我们并没有在任何地方使用它。我们来设定一下：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">WebSocketGateway</span><span class="p">({</span>
+    <span class="na">port</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+    <span class="na">middlewares</span><span class="p">:</span> <span class="p">[</span> <span class="nx">ChatMiddleware</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ChatGateway</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>如上所示，<code class="highlighter-rouge">@WebSocketGateway()</code> 接受额外的元数组属性 - <code class="highlighter-rouge">middlewares</code>，它是一个中间件数组。这些中间件将在消息处理程序前调用。</p>
+
+<h3 id="反应流reactive-streams">反应流(Reactive Streams)</h3>
+
+<p>Nest 网关是一个简单的组件，可以注入到另一个组件中。这个功能使得我们有可能选择将如何对消息做出反应。</p>
+
+<p>当然，只有有必要，我们可以向网关注入组件并调用其适当的方法。</p>
+
+<p>但是还有另一个解决方案，网关反应流（Gateway Reactive Streams）。你可以在这里阅读更多关于他们的信息。</p>
+
+<h3 id="微服务microservices支持">微服务(Microservices)支持</h3>
+
+<p>将 Nest 应用程序转换为 Nest 微服务是非常简单的。</p>
+
+<p>让我们来看看如何创建 Web 应用程序：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
+</code></pre>
+</div>
+<p>现在，切换到微服务：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">createMicroservice</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">,</span> <span class="p">{</span> <span class="na">port</span><span class="p">:</span> <span class="mi">3000</span> <span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Microservice is listening on port 3000'</span><span class="p">));</span>
+</code></pre>
+</div>
+<p>就是这样！</p>
+
+<h3 id="通过-tcp-进行通信">通过 TCP 进行通信</h3>
+
+<p>默认情况下， Nest 微服务通过 TCP 协议监听消息。这意味着现在 <code class="highlighter-rouge">@RequestMapping()</code> (以及 <code class="highlighter-rouge">@Post()</code>，<code class="highlighter-rouge"> @Get()</code> 等等)也不会有用，因为它是映射 HTTP 请求。那么微服务如何识别消息？只是通过模式。</p>
+
+<p>什么是模式？没什么特别的，它是一个对象，字符串或者数字（但这不是一个好注意）。</p>
+
+<p>让我们创建 <code class="highlighter-rouge">MathController</code> :</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">MessagePattern</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/microservices'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Controller</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MathController</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">MessagePattern</span><span class="p">({</span> <span class="na">cmd</span><span class="p">:</span> <span class="s1">'add'</span> <span class="p">})</span>
+    <span class="nx">add</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">respond</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">||</span> <span class="p">[];</span>
+        <span class="nx">respond</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>你可能会看到，如果你想创建消息处理程序，你必须使用 <code class="highlighter-rouge">@MessagePattern(pattern)</code> 进行装饰。在这个例子中，我选择 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">cmd:</span><span class="w"> </span><span class="err">'add'</span><span class="w"> </span><span class="p">}</span></code> 作为模式。</p>
+
+<p>该处理程序方法接收两个参数：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">data</code>，它是从另一个微服务器（或者只是 Web 应用程序）发送的数据变量，</li>
+  <li><code class="highlighter-rouge">respond</code>，接收两个参数（<code class="highlighter-rouge">error</code> 和 <code class="highlighter-rouge">response</code>）的函数。</li>
+</ul>
+
+<h3 id="客户端">客户端</h3>
+
+<p>你已经知道了如何接收消息。现在，我们来看看如何从另一个微服务器或者 Web 应用程序发送它们。</p>
+
+<p>在你开始之前，Nest 必须知道你要发送的邮件的位置。很简单，你只需要创建一个 <code class="highlighter-rouge">@Client</code> 对象。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ClientProxy</span><span class="p">,</span> <span class="nx">Transport</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/microservices'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Controller</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ClientController</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">Client</span><span class="p">({</span> <span class="na">transport</span><span class="p">:</span> <span class="nx">Transport</span><span class="p">.</span><span class="nx">TCP</span><span class="p">,</span> <span class="na">port</span><span class="p">:</span> <span class="mi">5667</span> <span class="p">})</span>
+    <span class="nl">client</span><span class="p">:</span> <span class="nx">ClientProxy</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">@Client()</code> 装饰器接收对象作为参数。此对象可以有 3 个属性：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">transport</code>，通过这种方式，你可以决定使用哪种方法，TCP 或者 Redis（默认为 TCP）</li>
+  <li><code class="highlighter-rouge">url</code>，仅用于 Redis 参数（默认为 redis://localhost:6379），</li>
+  <li><code class="highlighter-rouge">port</code>，端口，默认为 3000。</li>
+</ul>
+
+<h3 id="使用客户端">使用客户端</h3>
+
+<p>让我们来创建自定义路径来测试我们的通信。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ClientProxy</span><span class="p">,</span> <span class="nx">Transport</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/microservices'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Controller</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ClientController</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">Client</span><span class="p">({</span> <span class="na">transport</span><span class="p">:</span> <span class="nx">Transport</span><span class="p">.</span><span class="nx">TCP</span><span class="p">,</span> <span class="na">port</span><span class="p">:</span> <span class="mi">5667</span> <span class="p">})</span>
+    <span class="nl">client</span><span class="p">:</span> <span class="nx">ClientProxy</span><span class="p">;</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'client'</span><span class="p">)</span>
+    <span class="nx">sendMessage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="p">{</span> <span class="na">command</span><span class="p">:</span> <span class="s1">'add'</span> <span class="p">};</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">pattern</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+            <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Observable</span><span class="p">.</span><span class="nx">empty</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="nx">result</span> <span class="p">}));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>正如你看到的，为了发送消息，你必须使用 <code class="highlighter-rouge">send</code> 方法，它接收消息模式和数据作为参数。此方法从 <code class="highlighter-rouge">Rxjs</code> 包返回一个 <code class="highlighter-rouge">Observable</code> 。</p>
+
+<p>这是非常重要的特性，因为 <code class="highlighter-rouge">Observables</code> 提供了一组令人惊奇的操作来处理，例如 <code class="highlighter-rouge">combine</code>, <code class="highlighter-rouge">zip</code>, <code class="highlighter-rouge">retryWhen</code>, <code class="highlighter-rouge">timeout</code> 等等。</p>
+
+<p>当然，如果你想使用 <code class="highlighter-rouge">Promise</code> 而不是 <code class="highlighter-rouge">Observables</code>，你可以直接使用 <code class="highlighter-rouge">toPromise()</code>  方法。</p>
+
+<p>现在，当有人发送 <code class="highlighter-rouge">/test</code> 请求（<code class="highlighter-rouge">GET</code>）时，应该如何应用（如果微服务和 web 应用都可用）：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"result"</span><span class="err">:</span> <span class="mi">15</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="redis">Redis</h3>
+
+<p>还有另一种方式与 Nest 微服务合作。我们可以使用 <code class="highlighter-rouge">Redis</code> 的发布/订阅功能，而不是直接 TCP 通信。</p>
+
+<p>在使用之前，你必须安装 Redis。</p>
+
+<h3 id="创建-redis-微服务">创建 Redis 微服务</h3>
+
+<p>要创建 <code class="highlighter-rouge">Redis</code> 微服务，你必须在 <code class="highlighter-rouge">NestFactory.createMicroservice()</code> 方法中传递其他配置。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">createMicroservice</span><span class="p">(</span>
+    <span class="nx">MicroserviceModule</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="na">transport</span><span class="p">:</span> <span class="nx">Transport</span><span class="p">.</span><span class="nx">REDIS</span><span class="p">,</span>
+        <span class="na">url</span><span class="p">:</span> <span class="s1">'redis://localhost:6379'</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Microservice listen on port:'</span><span class="p">,</span> <span class="mi">5667</span> <span class="p">));</span>
+</code></pre>
+</div>
+<p>就这样。现在，你的微服务将订阅通过 <code class="highlighter-rouge">Redis</code> 发布的消息。其它方式依旧相同，如 模式和错误处理等等。</p>
+
+<h3 id="redis-客户端">Redis 客户端</h3>
+
+<p>现在让我们来看看如何创建客户端。以前，你的客户端配置如下：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Client</span><span class="p">({</span> <span class="na">transport</span><span class="p">:</span> <span class="nx">Transport</span><span class="p">.</span><span class="nx">TCP</span><span class="p">,</span> <span class="na">port</span><span class="p">:</span> <span class="mi">5667</span> <span class="p">})</span>
+<span class="nl">client</span><span class="p">:</span> <span class="nx">ClientProxy</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>我们想使用 Redis 而不是 TCP， 所以我们必须改变这些配置：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Client</span><span class="p">({</span> <span class="na">transport</span><span class="p">:</span> <span class="nx">Transport</span><span class="p">.</span><span class="nx">REDIS</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'redis://localhost:6379'</span> <span class="p">})</span>
+<span class="nl">client</span><span class="p">:</span> <span class="nx">ClientProxy</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>很容易，对么？ 就是这样。其他功能与 TCP 通信中的功能相同。</p>
+
+<h2 id="共享模块">共享模块</h2>
+
+<p>Nest 模块可以导出其它组件。这意味着，我们可以轻松地在它们之间共享组件实例。</p>
+
+<p>在两个或者更多模块之间共享实例的最佳方式是创建共享模块。</p>
+
+<p>例如，如果我们要在整个应用程序中共享 <code class="highlighter-rouge">ChatGateway</code> 组件，我们可以这样做：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span><span class="p">,</span> <span class="nx">Shared</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Shared</span><span class="p">()</span>
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">ChatGateway</span> <span class="p">],</span>
+    <span class="na">exports</span><span class="p">:</span> <span class="p">[</span> <span class="nx">ChatGateway</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">SharedModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>然后，我们只需要将这个模块导入到另一个模块中，这个模块应该共享组件实例：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">modules</span><span class="p">:</span> <span class="p">[</span> <span class="nx">SharedModule</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">FeatureModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>注意，也可以直接定义共享模块的范围，了解更多细节。</p>
+</blockquote>
+
+<h2 id="依赖注入-1">依赖注入</h2>
+
+<p>依赖注入是一个强大的机制，可以帮助我们轻松地管理我们类的依赖。它是非常受欢迎的语言，如 C# 和 Java。</p>
+
+<p>在 Node.js 中，这些功能并不重要，因为我们已经有了神奇的模块加载系统，如在文件之间共享实例的很容易的。</p>
+
+<p>模块加载系统对于中小应用足够用了。当代码增长时，顺利组织层之间的依赖就变得更加困难。总有一天会变得爆炸。</p>
+
+<p>它比 DI 构造函数更直观。这就是为什么 Nest 有自己的 DI 系统。</p>
+
+<h3 id="自定义组件">自定义组件</h3>
+
+<p>你已经了解到了，将组件添加到所选的模块是非常容易的。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">]</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>是还有一些其他情况， Nest 允许你利用。</p>
+
+<h3 id="使用-value">使用 value</h3>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">provide</span><span class="p">:</span> <span class="nx">UsersService</span><span class="p">,</span> <span class="na">useValue</span><span class="p">:</span> <span class="nx">value</span> <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>当：</p>
+
+<p>你想要使用具体的值，现在，在这个模式中， Nest 将把 <code class="highlighter-rouge">value</code> 与 <code class="highlighter-rouge">UsersService</code> 元类型相关联，
+你想要使用单元测试。</p>
+
+<h3 id="使用-class">使用 class</h3>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">CustomUsersService</span> <span class="p">{}</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">provide</span><span class="p">:</span> <span class="nx">UsersService</span><span class="p">,</span> <span class="na">useClass</span><span class="p">:</span> <span class="nx">CustomUsersService</span> <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>当：</p>
+
+<p>你只想在此模块中使用所选的更具体的类。</p>
+
+<h3 id="使用工厂">使用工厂</h3>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">ChatService</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">provide</span><span class="p">:</span> <span class="nx">UsersService</span><span class="p">,</span>
+            <span class="na">useFactory</span><span class="p">:</span> <span class="p">(</span><span class="nx">chatService</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">Observable</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'value'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="na">inject</span><span class="p">:</span> <span class="p">[</span> <span class="nx">ChatService</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>当：</p>
+
+<p>你想提供一个值，它必须使用其他组件（或定制包特性）来计算，
+你要提供异步值（只返回 <code class="highlighter-rouge">Observable</code> 或 <code class="highlighter-rouge">Promise</code>），例如数据库连接。
+请记住：</p>
+
+<p>如果要使用模块中的组件，则必须将它们传递给注入数组。 Nest 将按照相同的顺序传递作为参数的实例。</p>
+
+<h3 id="定制-providers">定制 providers</h3>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">provide</span><span class="p">:</span> <span class="s1">'isProductionMode'</span><span class="p">,</span> <span class="na">useValue</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>当你想提供一个选择的键值。</p>
+
+<blockquote>
+  <p>请注意：
+可以使用各种类型的 <code class="highlighter-rouge">useValue</code>, <code class="highlighter-rouge">useClass</code> 和 <code class="highlighter-rouge">useFactory</code>。</p>
+</blockquote>
+
+<p>怎么使用？</p>
+
+<p>使用选择的键注入自定义提供组件 / 值，你必须告诉 Nest，就像这样：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Inject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">SampleComponent</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Inject</span><span class="p">(</span><span class="s1">'isProductionMode'</span><span class="p">)</span> <span class="nx">isProductionMode</span><span class="err">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isProductionMode</span><span class="p">);</span> <span class="c1">// false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h2 id="moduleref">ModuleRef</h2>
+
+<p>有时候你可能希望直接从模块引用获取组件实例。对于 Nest 并不是一件大事，你只需要在类中注入 ModuleRef ：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span>
+        <span class="kr">private</span> <span class="nx">usersService</span><span class="err">:</span> <span class="nx">UsersService</span><span class="p">,</span>
+        <span class="kr">private</span> <span class="nx">moduleRef</span><span class="err">:</span> <span class="nx">ModuleRef</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>ModuleRef 提供一个方法：</p>
+
+<p>get<T>(key)，它返回等效键值实例（主要是元类型）。如 moduleRef.get<UsersService>(UsersService) 从当前模块返回 UsersService 组件的实例
+例如：</UsersService></T></p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">moduleRef</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">UsersService</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">UsersService</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>它将从当前模块返回 UsersService 组件的实例。</p>
+
+<h2 id="测试">测试</h2>
+
+<p>Nest 为你提供了一套测试工具，可以提供应用测试过程。可以有两种方法来测试你的组件和控制器，隔离测试和使用专用的 Nest 测试工具。</p>
+
+<h3 id="隔离测试">隔离测试</h3>
+
+<p>Nest 的控制器和组件都是一个简单的 JavaScript 类。这意味着，你可以很容易的自己创建它们：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleComponent</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>如果你的类还有其它依赖，你可以使用 test doubles，例如 Jasmine 或 Sinon 库：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">stub</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">createStubInstance</span><span class="p">(</span><span class="nx">DependencyComponent</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleComponent</span><span class="p">(</span><span class="nx">stub</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="专用的-nest-测试工具">专用的 Nest 测试工具</h3>
+
+<p>测试应用程序构建块的另一种方法是使用专用的 Nest 测试工具。</p>
+
+<p>这些测试工具放在静态 <code class="highlighter-rouge">Test</code> 类中（<code class="highlighter-rouge">@nestjs/testing</code> 模块）。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Test</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/testing'</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>该类提供两种方法：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">createTestingModule(metadata: ModuleMetadata)</code>，它作为参数接收简单的模块元数据（和 <code class="highlighter-rouge">Module()</code> class 相同）。此方法创建一个测试模块（与实际 Nest 应用程序相同）并将其存储在内存中。</li>
+  <li><code class="highlighter-rouge">get&lt;T&gt;(metatype: Metatype&lt;T&gt;)</code>，它返回选择的实例（<code class="highlighter-rouge">metatype</code> 作为参数传递），控制器/组件（如果它不是模块的一部分，则返回 <code class="highlighter-rouge">null</code>）。
+例如：
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">Test</span><span class="p">.</span><span class="nx">createTestingModule</span><span class="p">({</span>
+  <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">]</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">usersService</span> <span class="o">=</span> <span class="nx">Test</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">UsersService</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">UsersService</span><span class="p">);</span>
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h3 id="mocks-spies-stubs">Mocks, spies, stubs</h3>
+
+<p>有时候你可能不想使用组件/控制器的实例。你可以选择这样，使用 test doubles 或者 自定义 values / objects 。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">mock</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">Test</span><span class="p">.</span><span class="nx">createTestingModule</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">provide</span><span class="p">:</span> <span class="nx">UsersService</span><span class="p">,</span> <span class="na">useValue</span><span class="p">:</span> <span class="nx">mock</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">usersService</span> <span class="o">=</span> <span class="nx">Test</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">UsersService</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">UsersService</span><span class="p">);</span> <span class="c1">// mock</span>
+</code></pre>
+</div>
+
+<h2 id="异常过滤器exception-filters">异常过滤器（Exception Filters）</h2>
+
+<p>使用 Nest 可以将异常处理逻辑移动到称为 Exception Filters 的特殊类。</p>
+
+<p>如何工作？
+让我们来看下下面的代码：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+<span class="kr">public</span> <span class="nx">async</span> <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>想象一下，<code class="highlighter-rouge">usersService.getUser(id)</code> 方法会抛出一个 <code class="highlighter-rouge">UserNotFoundException</code> 异常。我们需要在路由处理程序中捕获异常：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+<span class="kr">public</span> <span class="nx">async</span> <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">(</span><span class="nx">exception</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">NOT_FOUND</span><span class="p">).</span><span class="nx">send</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>总而言之，我们必须向每个可能发生异常的路由处理添加 try … catch 块。还有其它方式么？ 是的，Exception Filters。</p>
+
+<p>让我们创建 NotFoundExceptionFilter ：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Catch</span><span class="p">,</span> <span class="nx">ExceptionFilter</span><span class="p">,</span> <span class="nx">HttpStatus</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UserNotFoundException</span> <span class="p">{}</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">OrderNotFoundException</span> <span class="p">{}</span>
+
+<span class="err">@</span><span class="nx">Catch</span><span class="p">(</span><span class="nx">UserNotFoundException</span><span class="p">,</span> <span class="nx">OrderNotFoundException</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">NotFoundExceptionFilter</span> <span class="kr">implements</span> <span class="nx">ExceptionFilter</span> <span class="p">{</span>
+    <span class="k">catch</span><span class="p">(</span><span class="nx">exception</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">NOT_FOUND</span><span class="p">).</span><span class="nx">send</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>现在，我们只需要告诉我们的 <code class="highlighter-rouge">Controller</code> 使用这个过滤器：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExceptionFilters</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">ExceptionFilters</span><span class="p">(</span><span class="nx">NotFoundExceptionFilter</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>所以如果 <code class="highlighter-rouge">usersService.getUser(id)</code> 会抛出 <code class="highlighter-rouge">UserNotFoundException</code>，那么， <code class="highlighter-rouge">NotFoundExceptionFilter</code> 将会捕获它。</p>
+
+<h3 id="更多异常过滤器">更多异常过滤器</h3>
+
+<p>每个控制器可能具有无限次的异常过滤器（仅用逗号分隔）。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">ExceptionFilters</span><span class="p">(</span><span class="nx">NotFoundExceptionFilter</span><span class="p">,</span> <span class="nx">AnotherExceptionFilter</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>依赖注入
+Exception filters 与组件相同，因此可以通过构造函数注入依赖关系。</p>
+
+<h3 id="httpexception">HttpException</h3>
+
+<p>注意：它主要用于 REST 应用程序。
+Nest 具有错误处理层，捕获所有未处理的异常。</p>
+
+<p>如果在某处，在你的应用程序中，你将抛出一个异常，这不是 HttpException（或继承的），Nest 会处理它并返回到下面用户的 json 对象（500 状态码）：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"message"</span><span class="err">:</span> <span class="s2">"Unkown exception"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="异常层次结构">异常层次结构</h3>
+
+<p>在应用程序中，你应该创建自己的异常层次结构(Exceptions Hierarchy)。所有的 HTTP 异常都应该继承自内置的 <code class="highlighter-rouge">HttpException</code>。</p>
+
+<p>例如，您可以创建 <code class="highlighter-rouge">NotFoundException</code> 和 <code class="highlighter-rouge">UserNotFoundException</code> 类：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpException</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">NotFoundException</span> <span class="kr">extends</span> <span class="nx">HttpException</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">msg</span><span class="err">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="mi">404</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UserNotFoundException</span> <span class="kr">extends</span> <span class="nx">NotFoundException</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="s1">'User not found.'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>然后，如果你的应用程序中的某个地方抛出 UserNotFoundException，Nest 将响应用户状态代码 404 及以下 json 对象：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"message"</span><span class="err">:</span> <span class="s2">"User not found."</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>它允许你专注于逻辑，并使你的代码更容易阅读。</p>
 
         </main>
       </div>
