@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Jekyll v3.5.2">
+
+<title>Nest &middot; Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+
+<!-- Documentation extras -->
+
+<link href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" rel="stylesheet">
+
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/favicon.ico">
+<meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+<!-- Meta -->
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<!-- Twitter -->
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nest">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://localhost:4001/assets/brand/bootstrap-social-logo.png">
+
+
+<!-- Facebook -->
+
+  <meta property="og:url" content="http://localhost:4001/wiki/nest">
+  <meta property="og:title" content="Nest">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+
+<meta property="og:image" content="http://localhost:4001/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="http://localhost:4001/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('send', 'pageview');
+</script>
+
+  </head>
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+  <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
+    <svg class="d-block" width="36" height="36" viewbox="0 0 612 612" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Bootstrap</title><path fill="currentColor" d="M510 8a94.3 94.3 0 0 1 94 94v408a94.3 94.3 0 0 1-94 94H102a94.3 94.3 0 0 1-94-94V102a94.3 94.3 0 0 1 94-94h408m0-8H102C45.9 0 0 45.9 0 102v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V102C612 45.9 566.1 0 510 0z"/><path fill="currentColor" d="M196.77 471.5V154.43h124.15c54.27 0 91 31.64 91 79.1 0 33-24.17 63.72-54.71 69.21v1.76c43.07 5.49 70.75 35.82 70.75 78 0 55.81-40 89-107.45 89zm39.55-180.4h63.28c46.8 0 72.29-18.68 72.29-53 0-31.42-21.53-48.78-60-48.78h-75.57zm78.22 145.46c47.68 0 72.73-19.34 72.73-56s-25.93-55.37-76.46-55.37h-74.49v111.4z"/></svg>
+
+  </a>
+
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link " href="/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs/4.0/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/docs/4.0/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://themes.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank" rel="noopener">Themes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://jobs.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Jobs');" target="_blank" rel="noopener">Jobs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://expo.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');" target="_blank" rel="noopener">Expo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://blog.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank" rel="noopener">Blog</a>
+      </li>
+    </ul>
+  </div>
+
+</header>
+
+
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <form class="bd-search d-flex align-items-center">
+  <input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+  <button class="btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
+    <svg class="" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>
+
+  </button>
+</form>
+
+<nav class="collapse bd-links" id="bd-docs-nav"></nav>
+
+        </div>
+
+        
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#安装">安装</a></li>
+<li class="toc-entry toc-h2"><a href="#设置应用程序">设置应用程序</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-创建入口模块">1. 创建入口模块</a></li>
+<li class="toc-entry toc-h3"><a href="#2-创建文件-indexts">2. 创建文件 index.ts</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#express-实例">Express 实例</a></li>
+<li class="toc-entry toc-h2"><a href="#控制器controllers">控制器(Controllers)</a></li>
+<li class="toc-entry toc-h2"><a href="#组件components">组件(Components)</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#async--await">Async / await</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#模块modules">模块(Modules)</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#依赖注入">依赖注入</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#中间件middlewares">中间件(Middlewares)</a></li>
+</ul>
+          </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Nest</h1>
+          <p class="bd-lead"></p>
+          <!-- <script async src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=getbootstrapcom" id="_carbonads_js"></script>
+ -->
+          <p><a href="http://nestjs.com/"><img src="/assets/img/nest.png" alt="nest" /></a> <a href="https://github.com/kamilmysliwiec/nest"><img src="/assets/img/github.svg" alt="github" /></a></p>
+
+<p>Nest 是一个强大的 Node.js Web 框架，可以帮助你轻松地构建高效，可扩展的应用程序。它采用现代 JavaScript，基于 TypeScript 构建，并结合了 OOP（面向对象编程）和 FP （函数式编程）的最佳概念。</p>
+
+<p>它不仅是又一个框架。你不必等待一个大型的社区，因为 Nest 建立在著名仓库 Express 和 socket.io 之上。这意味着，你可以快速开始使用框架，而不必担心第三方插件的缺失。</p>
+
+<h2 id="安装">安装</h2>
+
+<p>Git:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/kamilmysliwiec/nest-typescript-starter.git projectname
+cd projectname
+npm install
+npm run start
+</code></pre>
+</div>
+
+<p>NPM:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm i --save @nestjs/core @nestjs/common @nestjs/microservices @nestjs/websockets @nestjs/testing reflect-metadata rxjs
+</code></pre>
+</div>
+
+<h2 id="设置应用程序">设置应用程序</h2>
+
+<p>Nest 采用 ES6 和 ES7 （decorators， async / await）功能构建。这意味着，使用它的最简单的方法是 Babel 或 TypeScript。</p>
+
+<p>配置 <a href="/wiki/typescript/tips/">TypeScript</a></p>
+
+<h3 id="1-创建入口模块">1. 创建入口模块</h3>
+
+<p><code class="highlighter-rouge">app.module.ts</code></p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<h3 id="2-创建文件-indexts">2. 创建文件 index.ts</h3>
+
+<p>使用 <code class="highlighter-rouge">NestFactory</code> 基于我们的模块类来创建 Nest 应用程序实例。</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./app.module'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
+</code></pre>
+</div>
+<h2 id="express-实例">Express 实例</h2>
+
+<p>如果要完全控制 <code class="highlighter-rouge">express</code> 实例的生命周期，你可以简单的传递已创建的对象作为 <code class="highlighter-rouge">NestFactory.create()</code> 方法的第二个参数，像这样：</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s1">'express'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./modules/app.module'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">,</span> <span class="nx">instance</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<p>这意味着，你可以直接添加一些自定义配置（例如，设置一些插件，如 <code class="highlighter-rouge">morgan</code> 或 <code class="highlighter-rouge">body-parser</code>）。</p>
+
+<h2 id="控制器controllers">控制器(Controllers)</h2>
+
+<p>控制层（<code class="highlighter-rouge">Controllers</code>）负责处理传入的 HTTP 请求。在 Nest 中，控制器是一个带有 <code class="highlighter-rouge">@Controller()</code> 装饰器的类。</p>
+
+<p>在上一节中，我们为应用程序设置了入口点。现在，让我们来构建我们的第一个文件路径 <code class="highlighter-rouge">/users</code>：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span><span class="p">,</span> <span class="nx">Post</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Controller</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+    <span class="nx">getAllUsers</span><span class="p">()</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'users/:id'</span><span class="p">)</span>
+    <span class="nx">getUser</span><span class="p">()</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Post</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+    <span class="nx">addUser</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>我们刚刚创建了一个具有 3 种不同路径的路由：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>GET: users
+GET: users/:id
+POST: users
+</code></pre>
+</div>
+
+<p>Nest 允许我们将额外的元数据传递给 <code class="highlighter-rouge">@Controller()</code> 装饰器 - 路径，这是每个路由的前缀。让我们重写我们的控制器：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Controller</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">Get</span><span class="p">()</span>
+    <span class="nx">getAllUsers</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+    <span class="nx">getUser</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Post</span><span class="p">()</span>
+    <span class="nx">addUser</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>如果你想了解更多关于 <code class="highlighter-rouge">req</code> （请求），<code class="highlighter-rouge">res</code>（响应）和 <code class="highlighter-rouge">next</code>，你可以参考 Express 的<a href="https://expressjs.com/en/guide/routing.html">路由文档</a>。在 Nest 中，它们是等价的。</p>
+
+<p>但是有一个重要的区别。 Nest 提供了一组自定义的装饰器，你可以使用它们来标记参数。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nest</th>
+      <th>Express</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">@Request()</code></td>
+      <td><code class="highlighter-rouge">req</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Response()</code></td>
+      <td><code class="highlighter-rouge">res</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Next()</code></td>
+      <td><code class="highlighter-rouge">next</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Session()</code></td>
+      <td><code class="highlighter-rouge">req.session</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Param(param?: string)</code></td>
+      <td><code class="highlighter-rouge">req.params[param]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Body(param?: string)</code></td>
+      <td><code class="highlighter-rouge">req.body[param]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Query(param?: string)</code></td>
+      <td><code class="highlighter-rouge">req.query[param]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">@Headers(param?: string)</code></td>
+      <td><code class="highlighter-rouge">req.headers[param]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>你可以这样使用它们：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Response</span><span class="p">,</span> <span class="nx">Param</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+<span class="kr">public</span> <span class="nx">async</span> <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">ApplicationModule</code> 并添加一些元数据，只需要将 <code class="highlighter-rouge">controller</code> 插入 <code class="highlighter-rouge">controllers</code> 数组中。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"./users.controller"</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<h2 id="组件components">组件(Components)</h2>
+
+<p>几乎所有的东西都是组件，<code class="highlighter-rouge">Service</code>，<code class="highlighter-rouge">Repository</code>，<code class="highlighter-rouge">Provider</code>等等。并且他们可以通过构造函数注入控制器或另一组件。</p>
+
+<p>实际上，<code class="highlighter-rouge">UsersService</code>应该从持久层调用适当的方法，例如，<code class="highlighter-rouge">UsersRepository</code>组件。我们没有任何类型的数据库，所以我们再次使用假数据。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpException</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersService</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"John Doe"</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Alice Caeiro"</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Who Knows"</span> <span class="p">},</span>
+    <span class="p">];</span>
+    <span class="nx">getAllUsers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="err">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">HttpException</span><span class="p">(</span><span class="s2">"User not found"</span><span class="p">,</span> <span class="mi">404</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">addUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Nest 组件是一个简单的类，使用<code class="highlighter-rouge">@Component()</code>注释。</p>
+
+<p>在 <code class="highlighter-rouge">getUser()</code> 方法中可以看到，我们使用了 <code class="highlighter-rouge">HttpException</code>。它是 Nest 内置的异常，拥有两个参数，错误消息和状态代码。创建域异常是一个很好的做法，它应该扩展 <code class="highlighter-rouge">HttpException</code> （更多见错误处理章节）。</p>
+
+<p>我们的服务准备好了。让我们在 <code class="highlighter-rouge">UsersController</code> 中使用它。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Controller</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">usersService</span><span class="err">:</span> <span class="nx">UsersService</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">()</span>
+    <span class="nx">getAllUsers</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getAllUsers</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">users</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">users</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+    <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="o">+</span><span class="nx">id</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Post</span><span class="p">()</span>
+    <span class="nx">addUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Body</span><span class="p">(</span><span class="s1">'user'</span><span class="p">)</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">CREATED</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">msg</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>如图所示，<code class="highlighter-rouge">UsersService</code>将被注入到构造函数中。</p>
+
+<p>如果你不是 TypeScript 爱好者，并且使用纯 JavaScript，则必须按以下方式执行：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Dependencies</span><span class="p">,</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span><span class="p">,</span> <span class="nx">Post</span><span class="p">,</span> <span class="nx">Response</span><span class="p">,</span> <span class="nx">Param</span><span class="p">,</span> <span class="nx">Body</span><span class="p">,</span> <span class="nx">HttpStatus</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Controller</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<span class="err">@</span><span class="nx">Dependencies</span><span class="p">(</span><span class="nx">UsersService</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">usersService</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span> <span class="o">=</span> <span class="nx">usersService</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">()</span>
+    <span class="nx">getAllUsers</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getAllUsers</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">users</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">users</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+    <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="o">+</span><span class="nx">id</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Post</span><span class="p">()</span>
+    <span class="nx">addUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Body</span><span class="p">(</span><span class="s1">'user'</span><span class="p">)</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">CREATED</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">msg</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>因为 Nest 不知道有关 <code class="highlighter-rouge">UsersService</code> 的任何内容。此组件不是 <code class="highlighter-rouge">ApplicationModule</code> 的一部分，我们必须在那里添加：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.controller'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.service'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>现在我们的应用程序将执行，但仍然有一个路由不能正常工作，就是 <code class="highlighter-rouge">addUser</code> 。为什么？因为我们正在尝试解析请求体（<code class="highlighter-rouge">req.body.user</code>），而没有使用 <code class="highlighter-rouge">express</code> 的 <code class="highlighter-rouge">body-parser</code> 中间件。正如你知道的，可以通过 express 实例作为 <code class="highlighter-rouge">NestFactory.create()</code> 方法的第二个参数。
+让我们安装插件：</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install --save body-parser
+</code></pre>
+</div>
+<p>然后在我们的 express 实例中设置它。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s1">'express'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s1">'body-parser'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./modules/app.module'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">instance</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">,</span> <span class="nx">instance</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Application is listening on port 3000'</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<h3 id="async--await">Async / await</h3>
+<p>Nest 与 ES7 的 <code class="highlighter-rouge">async</code> / <code class="highlighter-rouge">await</code> 功能兼容。因此我们可以快速重写我们的 <code class="highlighter-rouge">UsersController</code> ：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Controller</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">usersService</span><span class="err">:</span> <span class="nx">UsersService</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">()</span>
+    <span class="nx">async</span> <span class="nx">getAllUsers</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getAllUsers</span><span class="p">();</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">users</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Get</span><span class="p">(</span><span class="s1">'/:id'</span><span class="p">)</span>
+    <span class="nx">async</span> <span class="nx">getUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Param</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="o">+</span><span class="nx">id</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Post</span><span class="p">()</span>
+    <span class="nx">async</span> <span class="nx">addUser</span><span class="p">(</span><span class="err">@</span><span class="nx">Response</span><span class="p">()</span> <span class="nx">res</span><span class="p">,</span> <span class="err">@</span><span class="nx">Body</span><span class="p">(</span><span class="s1">'user'</span><span class="p">)</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">CREATED</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>看起来更好么？在这里你可以阅读更多关于 <code class="highlighter-rouge">async</code> / <code class="highlighter-rouge">await。</code></p>
+
+<h2 id="模块modules">模块(Modules)</h2>
+
+<p>模块是一个带有 <code class="highlighter-rouge">@Module({})</code> 装饰器的类。该装饰器提供元数据，该框架用于组织应用程序结构。
+  现在，这是我们的 <code class="highlighter-rouge">ApplicationModule</code>：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.controller'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.service'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>默认情况下，模块封装每个依赖关系。这意味着不可能在模块之外使用其组件或控制器。</p>
+
+<p>每个模块也可以导入到另一个模块。实际上，你应该将 Nest 模块看做是 模块树。</p>
+
+<p>我们将 <code class="highlighter-rouge">UsersController</code> 和 <code class="highlighter-rouge">UsersService</code> 移动到 <code class="highlighter-rouge">UsersModule</code>。只需创建新文件，例如，<code class="highlighter-rouge">users.module.ts</code> 包含以下内容：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.controller'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.service'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<p>然后将 <code class="highlighter-rouge">UsersModule</code> 导入到 <code class="highlighter-rouge">ApplicationModule</code> （我们的主应用程序）：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users/users.module'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">modules</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersModule</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</code></pre>
+</div>
+<h3 id="依赖注入">依赖注入</h3>
+
+<p>模块可以轻松地注入组件，看起来如下：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span><span class="p">,</span> <span class="nx">ChatGateway</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModule</span> <span class="kr">implements</span> <span class="nx">NestModule</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">usersService</span><span class="err">:</span> <span class="nx">UsersService</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>此外，组件还可以注入模块：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersController</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">module</span><span class="err">:</span> <span class="nx">UsersModule</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>可以看到出，使用 Nest 可以将代码自然地拆分成可分离和可重用的模块。</p>
+
+<h2 id="中间件middlewares">中间件(Middlewares)</h2>
+
+<p>中间件是一个在路由处理程序前被调用的函数。中间件函数可以访问请求和响应对象，因此可以修改它们。它们也可以向一个屏障，如果中间件函数不调用 <code class="highlighter-rouge">next()</code>，请求将永远不会被路由处理程序处理。
+让我们来构建一个虚拟授权中间件。我们将使用 <code class="highlighter-rouge">X-Access-Token</code> HTTP 头来提供用户名（这是个奇怪的想法，但是不重要）。</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">UsersService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./users.service'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpException</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/core'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">NestMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthMiddleware</span> <span class="kr">implements</span> <span class="nx">NestMiddleware</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">usersService</span><span class="err">:</span> <span class="nx">UsersService</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nx">resolve</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kr">const</span> <span class="nx">userName</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">"x-access-token"</span><span class="p">];</span>
+            <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">usersService</span><span class="p">.</span><span class="nx">getUsers</span><span class="p">();</span>
+
+            <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">userName</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nx">HttpException</span><span class="p">(</span><span class="s1">'User not found.'</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+            <span class="nx">next</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>一些事实如下：</p>
+
+<ul>
+  <li>你应该使用 @Middleware() 注解来告诉 Nest，这个类是一个中间件，</li>
+  <li>你可以使用 NestMiddleware 界面，这强制你使用 resolve() 方法，</li>
+  <li>中间件（与组件相同）可以通过其构造函数的注入依赖项（依赖关系必须是模块的一部分），</li>
+  <li>中间件必须有 resolve() 方法，它必须返回另一个函数（高阶函数）。为什么？因为有很多第三方插件准备使用 express 中间件，你可以简单地在 Nest 中使用，还要感谢这个方案。</li>
+</ul>
+
+<p>好了，我们已经准备好了中间件，但是我们并没有在任何地方使用它。我们来设置它：</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span><span class="p">,</span> <span class="nx">MiddlewaresConsumer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Module</span><span class="p">({</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersController</span> <span class="p">],</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+    <span class="na">exports</span><span class="p">:</span> <span class="p">[</span> <span class="nx">UsersService</span> <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModule</span> <span class="p">{</span>
+    <span class="nx">configure</span><span class="p">(</span><span class="nx">consumer</span><span class="err">:</span> <span class="nx">MiddlewaresConsumer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">consumer</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">AuthMiddleware</span><span class="p">).</span><span class="nx">forRoutes</span><span class="p">(</span><span class="nx">UsersController</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>如上所示，模块可以有其他方法，<code class="highlighter-rouge">configure()</code>。此方法接收 <code class="highlighter-rouge">MiddlewaresConsumer</code>  对象作为参数，它可以帮助我们配置中间件。</p>
+
+<p>这个对象有 <code class="highlighter-rouge">apply()</code> 方法，它接收到无数的中间件（这个方法使用扩展运算符，所以可以传递多个由逗号分隔的类）。 <code class="highlighter-rouge">apply()</code> 方法返回对象，它有两种方法：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">forRoutes()</code>：我们使用这种方法通过逗号分隔控制器或对象（具有 <code class="highlighter-rouge">path</code> 和 <code class="highlighter-rouge">method</code> 属性），不限个数，</li>
+  <li><code class="highlighter-rouge">with()</code>：我们使用这种方法将自定义参数传递给 <code class="highlighter-rouge">resolve()</code> 中间件方法。</li>
+</ul>
+
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+
+<script src="/assets/js/vendor/popper.min.js"></script>
+
+
+  <script src="/assets/js/bootstrap.js"></script>
+
+
+
+  <script src="/assets/js/vendor/anchor.min.js"></script>
+  <script src="/assets/js/vendor/clipboard.min.js"></script>
+  <script src="/assets/js/vendor/holder.min.js"></script>
+  <script src="/assets/js/src/application.js"></script>
+  <script src="/assets/js/src/pwa.js"></script>
+
+
+<script src="/assets/js/ie-emulation-modes-warning.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script>
+  var docsearch = docsearch({
+    apiKey: '48cb48b22351bc71ea5f12f4d1ede198',
+    indexName: 'bootstrap-v4',
+    inputSelector: '#search-input',
+    handleSelected: function (input, event, suggestion) {
+      var url = suggestion.url;
+      url = suggestion.isLvl1 ? url.split('#')[0]: url;
+      // If it's a title we remove the anchor so it does not jump.
+      window.location.href = url;
+    },
+    transformData: function (hits) {
+      return hits.map(function (hit) {
+        hit.url = hit.url.replace('https://v4-alpha.getbootstrap.com', '/docs/4.0');
+        return hit;
+      });
+    },
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+</script>
+
+
+<script>
+Holder.addTheme('gray', {
+  bg: '#777',
+  fg: 'rgba(255,255,255,.75)',
+  font: 'Helvetica',
+  fontweight: 'normal'
+});
+</script>
+
+  </body>
+</html>

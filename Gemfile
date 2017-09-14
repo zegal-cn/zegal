@@ -12,5 +12,5 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '~> 0.3.0.pre1'
   gem 'scss_lint', '~> 0.54.0'
 end
-
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

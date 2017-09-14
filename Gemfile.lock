@@ -58,6 +58,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.2)
       tzinfo (>= 1.0.0)
+    wdm (0.1.1)
 
 PLATFORMS
   x86-mingw32
@@ -71,6 +72,7 @@ DEPENDENCIES
   minima (~> 2.0)
   scss_lint (~> 0.54.0)
   tzinfo-data
+  wdm (>= 0.1.0)
 
 BUNDLED WITH
    1.15.4
